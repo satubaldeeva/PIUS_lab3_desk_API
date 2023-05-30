@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\ApiV1\Modules\List\Requests;
+namespace App\Http\ApiV1\Modules\Lists\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateLIstRequest extends FormRequest
+class CreateListsRequest extends FormRequest
 {
     public function authorize(): bool
     {

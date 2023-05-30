@@ -4,7 +4,7 @@ namespace App\Domains\Lists\Actions;
 
 use App\Models\Lists;
 
-class PatchListsction
+class PatchListsAction
 {
     public function execute(int $id, array $fields)
     {

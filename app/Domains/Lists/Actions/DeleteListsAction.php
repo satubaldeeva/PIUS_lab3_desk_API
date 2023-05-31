@@ -2,7 +2,7 @@
 
 namespace App\Domains\Lists\Actions;
 
-use App\Models\Lists;
+use App\Domains\Lists\Models\Lists;
 
 class DeleteListsAction
 {

@@ -1,0 +1,272 @@
+Desks:
+  get:
+    tags:
+      - desks
+    summary: Get all existing desks
+    operationId: getDesks
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: './desks.yaml#/DeskResponse'
+  post:
+    tags:
+      - desks
+    summary: Create a new desk
+    operationId: addDesks
+    requestBody:
+      description: Create a new desks
+      content:
+        application/json:
+          schema:
+            $ref: './desks.yaml#/CreateDeskRequest'
+      required: true
+    responses:
+      '201':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              $ref: './desks.yaml#/DeskResponse'
+      '400':
+        description: Bad request
+
+Desk:
+  get:
+    tags:
+      - desks
+    summary: Get a desk by ID
+    operationId: getDesksById
+    parameters:
+      - name: id
+        in: path
+        description: ID of the desk to return
+        required: true
+        schema:
+          type: integer
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              $ref: './desks.yaml#/DeskResponse'
+      '404':
+        description: Not found
+  put:
+    tags:
+      - desks
+    summary: Replace a desk by ID
+    operationId: replaceDeskById
+    parameters:
+      - name: id
+        in: path
+        description: ID of the desk to replace
+        required: true
+        schema:
+          type: integer
+    requestBody:
+      description: Updated desk  data
+      content:
+        application/json:
+          schema:
+            $ref: './desks.yaml#/ReplaceDeskRequest'
+      required: true
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              $ref: './desks.yaml#/DeskResponse'
+      '404':
+        description: Not found
+      '400':
+        description: Bad request
+  patch:
+    tags:
+      - desks
+    summary: Update a desk by ID
+    operationId: updateDeskById
+    parameters:
+      - name: id
+        in: path
+        description: ID of the desk to update
+        required: true
+        schema:
+          type: integer
+    requestBody:
+      description: Updated desk data
+      content:
+        application/json:
+          schema:
+            $ref: './desks.yaml#/PatchDeskRequest'
+      required: true
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              $ref: './desks.yaml#/DeskResponse'
+      '404':
+        description: Not found
+      '400':
+        description: Bad request
+  delete:
+    tags:
+      - desks
+    summary: Delete a desks by ID
+    operationId: deleteDeskById
+    parameters:
+      - name: id
+        in: path
+        description: ID of the desk to delete
+        required: true
+        schema:
+          type: integer
+    responses:
+      '204':
+        description: No Content
+
+Lists:
+  get:
+    tags:
+      - lists
+    summary: Get all existing lists
+    operationId: getLists
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: './lists.yaml#/ListResponse'
+  post:
+    tags:
+      - lists
+    summary: Create a new list
+    operationId: addLists
+    requestBody:
+      description: Create a new list
+      content:
+        application/json:
+          schema:
+            $ref: './lists.yaml#/CreateListRequest'
+      required: true
+    responses:
+      '201':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              $ref: './lists.yaml#/ListResponse'
+      '400':
+        description: Bad request
+
+List:
+  get:
+    tags:
+      - lists
+    summary: Get a list by ID
+    operationId: getListById
+    parameters:
+      - name: id
+        in: path
+        description: ID of the list to return
+        required: true
+        schema:
+          type: integer
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              $ref: './lists.yaml#/ListResponse'
+      '404':
+        description: Not found
+
+  put:
+    tags:
+      - lists
+    summary: Replace a list by ID
+    operationId: replaceListById
+    parameters:
+      - name: id
+        in: path
+        description: ID of the list to replace
+        required: true
+        schema:
+          type: integer
+    requestBody:
+      description: Updated list data
+      content:
+        application/json:
+          schema:
+            $ref: './lists.yaml#/ReplaceListRequest'
+      required: true
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              $ref: './lists.yaml#/ListResponse'
+      '404':
+        description: Not found
+      '400':
+        description: Bad request
+
+  patch:
+    tags:
+      - lists
+    summary: Update a list by ID
+    operationId: updateListById
+    parameters:
+      - name: id
+        in: path
+        description: ID of the list to update
+        required: true
+        schema:
+          type: integer
+    requestBody:
+      description: Updated list data
+      content:
+        application/json:
+          schema:
+            $ref: './lists.yaml#/PatchListRequest'
+      required: true
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              $ref: './lists.yaml#/ListResponse'
+      '404':
+        description: Not found
+      '400':
+        description: Bad request
+
+  delete:
+    tags:
+      - lists
+    summary: Delete a list by ID
+    operationId: deleteListById
+    parameters:
+      - name: id
+        in: path
+        description: ID of the list to delete
+        required: true
+        schema:
+          type: integer
+    responses:
+      '204':
+        description: No Content

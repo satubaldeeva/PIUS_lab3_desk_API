@@ -2,12 +2,12 @@
 
 namespace App\Domains\Desk\Actions;
 
-use App\Models\Desk;
+use App\Domains\Desk\Models\Desk;
 
 class PostDeskAction
 {
-    public function execute(array $fields)
+    public function execute(array $fields): Desk
     {
-        $desk = Desk::create($fields); 
+        return Desk::create($fields);
     }
 }

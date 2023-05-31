@@ -1,16 +1,17 @@
 <?php
 
-namespace App\HTTP\ApiV1\Modules\Controllers;
+namespace App\Http\ApiV1\Modules\Desk\Controllers;
 
 use App\Domains\Desk\Actions\DeleteDeskAction;
 use App\Domains\Desk\Actions\PatchDeskAction;
 use App\Domains\Desk\Actions\PostDeskAction;
 use App\Domains\Desk\Actions\PutDeskAction;
+use App\Http\ApiV1\Modules\Desk\Requests\ReplaceDeskRequest;
 use App\Http\ApiV1\Modules\Desk\Resources\DeskResource;
 use App\Http\Controllers\Controller;
 use App\Http\ApiV1\Modules\Desk\Requests\CreateDeskRequest;
 use App\Http\ApiV1\Modules\Desk\Requests\PatchDeskRequest;
-use App\Models\Desk;
+use App\Domains\Desk\Models\Desk;
 
 class DeskController extends Controller
 {
@@ -31,7 +32,7 @@ class DeskController extends Controller
     }
 
     public function put(
-        CreateDeskRequest $request,
+        ReplaceDeskRequest $request,
         PutDeskAction $action,
         int $id
     ) {
@@ -44,5 +45,13 @@ class DeskController extends Controller
         int $id
     ) {
         return new DeskResource($action->execute($id, $request->validated()));
-    }    
+    }
+
+    public function delete(
+        DeleteDeskAction $action,
+        int $id
+    ) {
+        $action->execute($id);
+        return response()->noContent();
+    }
 }

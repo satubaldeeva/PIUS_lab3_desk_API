@@ -1,0 +1,85 @@
+List:
+  type: object
+  properties:
+    id:
+      type: integer
+      example: 1
+    desk_id:
+      type: integer
+      example: 1
+    name:
+      type: string
+      example: Name
+    description:
+      type: string
+      example: Description
+    created_at:
+      format: date-time
+      type: string
+      example: "2023-01-29T12:36:13.000000Z"
+    updated_at:
+      format: date-time
+      type: string
+      example: "2023-01-29T12:36:13.000000Z"
+  required:
+    - id
+    - desk_id
+    - name
+    - description
+    - created_at
+    - updated_at
+
+CreateListRequest:
+  type: object
+  properties:
+    desk_id:
+      type: integer
+      example: 1
+    name:
+      type: string
+      example: Name
+    description:
+      type: string
+      example: Description
+  required:
+    - desk_id
+    - name
+    - description
+
+ReplaceListRequest:
+  type: object
+  properties:
+    desk_id:
+      type: integer
+      example: 1
+    name:
+      type: string
+      example: Name
+    description:
+      type: string
+      example: Description
+  required:
+    - desk_id
+    - name
+    - description
+
+PatchListRequest:
+  type: object
+  properties:
+    desk_id:
+      type: integer
+      example: 1
+    name:
+      type: string
+      example: Name
+    description:
+      type: string
+      example: Description
+
+ListResponse:
+  type: object
+  properties:
+    data:
+      $ref: '#/List'
+  required:
+    - data

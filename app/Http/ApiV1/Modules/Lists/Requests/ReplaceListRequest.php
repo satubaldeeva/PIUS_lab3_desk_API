@@ -4,7 +4,7 @@ namespace App\Http\ApiV1\Modules\Lists\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateListsRequest extends FormRequest
+class ReplaceListRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -21,7 +21,7 @@ class CreateListsRequest extends FormRequest
         return [
             'name' => 'required|string',
             'desk_id' => 'required|int',
-            'description' => 'required|text'
+            'description' => 'required|string'
         ];
     }
 }

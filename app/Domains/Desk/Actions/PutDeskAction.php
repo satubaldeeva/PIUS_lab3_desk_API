@@ -2,7 +2,7 @@
 
 namespace App\Domains\Desk\Actions;
 
-use App\Models\Desk;
+use App\Domains\Desk\Models\Desk;
 
 class PutDeskAction
 {

@@ -5,8 +5,8 @@ return [
 
     'urls' => [
         [
-            'url' => '/config.yaml',
-            'name' => 'SWagger UI'
+            'url' => 'api-docs/v1/index.yaml',
+            'name' => 'Sagger UI'
         ],
     ],
 ];

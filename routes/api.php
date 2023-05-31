@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\ApiV1\Modules\Desk\Controllers\DeskController;
-use App\Http\ApiV1\Modules\Lists\Controllers\ListsController;
+use App\Http\ApiV1\Modules\Lists\Controllers\ListController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,13 +22,13 @@ Route::prefix('v1')->group(function () {
         ]);
 
     //Lists
-    Route::get('/lists', [ListsController::class, 'index']);
-    Route::post('/lists', [ListsController::class, 'post']);
-    Route::get('/lists/{id}', [ListsController::class, 'get']);
-    Route::put('/lists/{id}', [ListsController::class, 'put']);
-    Route::patch('/lists/{id}', [ListsController::class, 'patch']);
+    Route::get('/lists', [ListController::class, 'index']);
+    Route::post('/lists', [ListController::class, 'post']);
+    Route::get('/lists/{id}', [ListController::class, 'get']);
+    Route::put('/lists/{id}', [ListController::class, 'put']);
+    Route::patch('/lists/{id}', [ListController::class, 'patch']);
     Route::delete('/lists/{id}', [
-        ListsController::class,
+        ListController::class,
         'delete'
     ]);
 });

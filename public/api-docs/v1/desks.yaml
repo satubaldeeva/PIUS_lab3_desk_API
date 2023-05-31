@@ -1,0 +1,55 @@
+Desk:
+  type: object
+  properties:
+    id:
+      type: integer
+      example: 1
+    name:
+      type: string
+      example: Ivan
+    created_at:
+      format: date-time
+      type: string
+      example: "2023-01-29T12:36:13.000000Z"
+    updated_at:
+      format: date-time
+      type: string
+      example: "2023-01-29T12:36:13.000000Z"
+  required:
+    - id
+    - name
+    - created_at
+    - updated_at
+
+CreateDeskRequest:
+  type: object
+  properties:
+    name:
+      type: string
+      example: Ivan
+  required:
+    - name
+
+ReplaceDeskRequest:
+  type: object
+  properties:
+    name:
+      type: string
+      example: Ivan
+  required:
+    - name
+
+PatchDeskRequest:
+  type: object
+  properties:
+    name:
+      type: string
+      example: Ivan
+
+DeskResponse:
+  type: object
+  properties:
+    data:
+      $ref: '#/Desk'
+  required:
+    - data

@@ -2,12 +2,20 @@
 
 namespace App\Domains\Lists\Actions;
 
-use App\Models\Lists;
+use App\Domains\Lists\Models\Lists;
 
 class PostListsAction
 {
+    public function __construct(protected CheckListsAction $checkListsAction)
+    {
+    }
+
     public function execute(array $fields)
     {
-        $lists = Lists::create($fields); 
+        $list = new Lists($fields);
+        $this->checkListsAction->execute($list);
+        $list->save();
+
+        return $list;
     }
 }

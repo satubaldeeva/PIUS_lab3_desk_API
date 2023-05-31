@@ -2,14 +2,21 @@
 
 namespace App\Domains\Lists\Actions;
 
-use App\Models\Lists;
+use App\Domains\Lists\Models\Lists;
 
 class PutListsAction
 {
+    public function __construct(protected CheckListsAction $checkListsAction)
+    {
+    }
+
     public function execute(int $id, array $fields)
     {
-        $lists = Lists::findOrFail($id);
-        $lists -> update($fields);
-        return $lists;
+        $list = Lists::findOrFail($id);
+        $list -> fill($fields);
+        $this->checkListsAction->execute($list);
+        $list->save();
+
+        return $list;
     }
 }

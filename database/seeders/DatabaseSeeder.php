@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Domains\Desk\Models\Desk;
+use App\Domains\Lists\Models\Lists;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Desk::factory()->count(10)->create()->each(function($c) {
+            $c->lists()->saveMany(
+                Lists::factory()->count(5)->make());
+        });
     }
 }

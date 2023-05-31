@@ -18,3 +18,5 @@ paths:
     $ref: './paths.yaml#/Desk'
   /lists/{id}:
     $ref: './paths.yaml#/List'
+  /desks:search:
+    $ref: './paths.yaml#/DesksSearch'

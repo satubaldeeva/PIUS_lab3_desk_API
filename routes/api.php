@@ -20,6 +20,7 @@ Route::prefix('v1')->group(function () {
         DeskController::class,
         'delete'
         ]);
+    Route::post('/desks:search', [DeskController::class, 'search']);
 
     //Lists
     Route::get('/lists', [ListController::class, 'index']);

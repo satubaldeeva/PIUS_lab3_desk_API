@@ -6,12 +6,15 @@ use App\Domains\Desk\Actions\DeleteDeskAction;
 use App\Domains\Desk\Actions\PatchDeskAction;
 use App\Domains\Desk\Actions\PostDeskAction;
 use App\Domains\Desk\Actions\PutDeskAction;
+use App\Domains\Desk\Actions\SearchDeskAction;
 use App\Http\ApiV1\Modules\Desk\Requests\ReplaceDeskRequest;
+use App\Http\ApiV1\Modules\Desk\Requests\SearchDesksRequest;
 use App\Http\ApiV1\Modules\Desk\Resources\DeskResource;
 use App\Http\Controllers\Controller;
 use App\Http\ApiV1\Modules\Desk\Requests\CreateDeskRequest;
 use App\Http\ApiV1\Modules\Desk\Requests\PatchDeskRequest;
 use App\Domains\Desk\Models\Desk;
+use Illuminate\Http\Request;
 
 class DeskController extends Controller
 {
@@ -53,5 +56,12 @@ class DeskController extends Controller
     ) {
         $action->execute($id);
         return response()->noContent();
+    }
+
+    public function search(
+        SearchDeskAction $action,
+        SearchDesksRequest $request
+    ) {
+        return DeskResource::collection($action->execute($request->validated()));
     }
 }
